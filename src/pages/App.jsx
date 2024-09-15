@@ -1,10 +1,11 @@
-import "../styles/App.css";
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 function App() {
   return (
-    <div id="main_container" className="bg-ecom-bg mx-auto">
+    <div id="main_container" className="App bg-ecom-bg">
       <Header />
+      <Footer />
     </div>
   );
 }
