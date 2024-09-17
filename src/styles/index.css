@@ -8,13 +8,13 @@
   }
 }
 
-.App {
+.app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.Footer {
+.footer {
   margin-top: auto;
   padding: 1rem;
 }
