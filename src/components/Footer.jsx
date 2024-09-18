@@ -1,28 +1,27 @@
 import { Link } from "react-router-dom";
+import { Email } from "./icons";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer bg-ecom-dark text-ecom-light">
       <div className="container grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
         <div className="p-2">
-          <h2 className="font-bold text-center mb-2">NuYuu</h2>
+          <h2 className="text-center mb-2">NuYuu</h2>
           <p className="">
-          42 Trendsetter Avenue <br />
-          Futureland 12345 <br />
-          Planet Earth
+            42 Trendsetter Avenue <br />
+            Futureland 12345 <br />
+            Planet Earth
           </p>
         </div>
         <div className="p-2 flex flex-col items-center">
-          <h2 className="font-bold mb-3">
-            Contact us
-          </h2>
+          <h2 className="mb-3">Contact us</h2>
           <Link to="/contact" title="to contact page">
-            <img src="/assets/contact-email.svg" alt="" className="h-8" />
+            <Email classes="text-ecom-light" size={30} />
           </Link>
         </div>
         <div className="flex flex-col items-center">
           <div className="p-2">
-            <h2 className="font-bold">Payment</h2>
+            <h2>Payment</h2>
           </div>
           <div className="flex gap-2">
             <img

@@ -5,7 +5,7 @@ import Search from "./Search";
 
 function Header() {
   return (
-    <header className="flex justify-between p-5">
+    <header className="flex justify-between">
       <div className="container mx-auto flex flex-wrap md:flex-nowrap justify-between items-center mb-3 md:mb-0 gap-4">
         <button className="flex md:hidden order-1">
           <img src="/assets/menu.svg" className="size-7" alt="menu icon" />
