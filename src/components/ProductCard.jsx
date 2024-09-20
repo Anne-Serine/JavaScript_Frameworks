@@ -16,7 +16,7 @@ function ProductCard({ name, price, image, discountPrice, id }) {
       </div>
       <div className="relative flex justify-center">
         <span className="absolute -top-3.5 mx-auto bg-ecom-dark text-ecom-white px-10 rounded-full font-normal">
-          $ {discountPrice}
+          {discountPrice} NOK
         </span>
       </div>
       <div className="p-4 pt-7">{name}</div>

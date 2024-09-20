@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Button from "../components/Button";
 import CategoryThumb from "../components/CategoryThumb";
 import { ShoppingCart } from "../components/icons";
 import ProductCard from "../components/ProductCard";
@@ -11,17 +10,16 @@ function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    async function getProducts() {
+    async function getProducts(){
       try {
         const response = await fetch(url);
         const result = await response.json();
         setProducts(result.data);
-
       } catch (error) {
-
+        return error
       }
     }
-    getProducts();
+    getProducts()
   }, []);
 
   console.log(products);
@@ -41,11 +39,8 @@ function Home() {
         </div>
         <div className="my-6 grid grid-cols-[repeat(auto-fit,minmax(18rem,_1fr))] gap-3">
           {products.length > 0 && products.map((product) => (
-            <ProductCard name={product.title} price={product.price} image={product.image.url} discountPrice={product.discountedPrice} />
+            <ProductCard name={product.title} price={product.price} image={product.image.url} discountPrice={product.discountedPrice} key={product.id} id={product.id} />
           ))}
-        </div>
-        <div className="flex justify-center p-3">
-          <Button text="View more >" type="primary" />
         </div>
       </div>
     </>
