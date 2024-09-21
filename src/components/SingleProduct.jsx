@@ -11,8 +11,8 @@ function SingleProduct({
 }) {
   return (
     <div className="flex flex-wrap gap-10 pb-5">
-      <div className="object-cover bg-white">
-        <img src={image} alt="" />
+      <div className="w-full md:w-7/12">
+        <img src={image} alt="" className="size-full max-h-[40rem] object-cover" />
       </div>
       <div className="flex flex-col gap-5 flex-1 max-w-[30rem]">
         <h1 className="text-4xl font-medium">{name}</h1>
@@ -27,7 +27,7 @@ function SingleProduct({
             </div>
           )}
         </div>
-        <Button text="Add to cart" type="secondary" />
+        <Button text="Add to cart" type="secondary" url="" />
       </div>
     </div>
   );

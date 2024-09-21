@@ -51,6 +51,6 @@
   }
 }
 
-svg {
+svg:not(.lucide) {
   @apply fill-current
 }
