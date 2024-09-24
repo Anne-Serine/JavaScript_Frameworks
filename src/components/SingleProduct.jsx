@@ -1,7 +1,11 @@
+import { useEffect, useState } from "react";
+import useCounterStore from "../hooks/Store";
 import Button from "./Button";
 import StarRating from "./StarRating";
+import Counter from "./counter";
 
 function SingleProduct({
+  id,
   image,
   name,
   description,
@@ -9,6 +13,15 @@ function SingleProduct({
   discountedPrice,
   price,
 }) {
+
+  const addToCart = useCounterStore((state) => state.addToCart);
+  const products = useCounterStore((state) => state.products);
+  const [qty, setQty] = useState(1)
+
+  useEffect(() => {
+    products.map((obj) => obj.product === id && setQty(obj.qty))
+  }, [products, id])
+
   return (
     <div className="flex flex-wrap gap-10 pb-5">
       <div className="w-full md:w-7/12">
@@ -27,7 +40,8 @@ function SingleProduct({
             </div>
           )}
         </div>
-        <Button text="Add to cart" type="secondary" url="" />
+        <Counter id={id} qty={qty} setQty={(i) => setQty(i) } />
+        <Button id={id} onClick={(e) => addToCart(e,qty)} text="Add to cart" type="secondary" />
       </div>
     </div>
   );

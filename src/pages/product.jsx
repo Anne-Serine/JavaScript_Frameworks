@@ -22,12 +22,9 @@ function Product() {
     getProduct()
   }, [id, url]);
 
-  console.log(product);
-  console.log(id)
-
   return (
     <div className="container">
-      <SingleProduct image={product.image && product.image.url} name={product.title} description={product.description} rating={product.rating} discountedPrice={product.discountedPrice} price={product.price}  />
+      <SingleProduct image={product.image && product.image.url} name={product.title} description={product.description} rating={product.rating} discountedPrice={product.discountedPrice} price={product.price} id={id}  />
       <div className="border-black border-t-2">
         <h2 className="mb-3 mt-6">Reviews</h2> 
         <div className="flex gap-3 overflow-x-auto pb-4">
