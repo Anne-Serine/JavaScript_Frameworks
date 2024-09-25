@@ -6,38 +6,38 @@ const useCounterStore = create((set) => ({
   increment: (id) =>
     set((state) => ({
       products: state.products.map((obj) =>
-        obj.product === id
-          ? { ...obj, qty: obj.qty + 1 }
-          : obj
+        obj.product.id === id ? { ...obj, qty: obj.qty + 1 } : obj
       ),
     })),
-  // incrementAsync: async (id) => {
-  //   await new Promise((resolve) => setTimeout(resolve, 1000));
-  //   (state) => ({
-  //     products: state.products.map((obj) =>
-  //       obj.product === id
-  //         ? { ...obj, qty: obj.qty === 1 ? 1 : obj.qty + 1 }
-  //         : obj
-  //     ),
-  //   });
-  // },
   decrement: (id) =>
     set((state) => ({
       products: state.products.map((obj) =>
-        obj.product === id
+        obj.product.id === id
           ? { ...obj, qty: obj.qty === 1 ? 1 : obj.qty - 1 }
           : obj
       ),
-  })),
-  addToCart: (id, qty) =>
+    })),
+  addToCart: async (id, qty) => {
+    const response = await fetch(`https://v2.api.noroff.dev/online-shop/${id}`).then((res) => res.json());
     set((state) =>
-      !state.products.some((obj) => obj.product === id)
+      !state.products.some((obj) => obj.product.id === id)
         ? {
-            count: state.count + 1,
-            products: [...state.products, { product: id, qty: qty }],
+            count: state.count + qty,
+            products: [...state.products, { product: response.data, qty: qty }],
           }
-        : { count: state.count, products: state.products }
-    ),
+        : {
+            count: state.products.reduce((sum, item) => sum + item.qty, 0),
+            products: state.products,
+          }
+    );
+  },
+  totalCount: (state) => state.products.reduce((acc, obj) => acc + obj.qty, 0),
+  removeItem: (id) => set(
+    (state) => ({
+      count: state.count - state.products.find(obj => obj.product.id === id).qty,
+      products: state.products.filter(obj => obj.product.id !== id)
+    })
+  ),
   emptyCart: () =>
     set(() => ({
       count: 0,

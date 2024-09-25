@@ -19,7 +19,7 @@ function SingleProduct({
   const [qty, setQty] = useState(1)
 
   useEffect(() => {
-    products.map((obj) => obj.product === id && setQty(obj.qty))
+    products.map((obj) => obj.product.id === id && setQty(obj.qty))
   }, [products, id])
 
   return (
