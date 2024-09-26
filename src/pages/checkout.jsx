@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Counter from "../components/counter";
 import useCounterStore from "../hooks/Store";
 import Button from "../components/Button";
@@ -6,29 +5,10 @@ import Button from "../components/Button";
 function Checkout() {
   const products = useCounterStore((state) => state.products);
   const removeItem = useCounterStore((state) => state.removeItem);
-  // const emptyCart = useCounterStore((state) => state.emptyCart);
+  const emptyCart = useCounterStore((state) => state.emptyCart);
 
   console.log(products)
-  // const [product, setProduct] = useState([]);
-  const [qty, setQty] = useState(1);
 
-  // useEffect(() => {
-  //   let productArray = [];
-  //   async function getProduct(id) {
-  //     const url = `https://v2.api.noroff.dev/online-shop/${id}`;
-
-  //     try {
-  //       const response = await fetch(url);
-  //       const result = await response.json();
-  //       productArray.push(result.data);
-  //       console.log(result);
-  //       setProduct(productArray);
-  //     } catch (error) {
-  //       return error;
-  //     }
-  //   }
-  //   products.map((obj) => getProduct(obj.product));
-  // }, [products]);
 
   return (
     <div>
@@ -52,12 +32,20 @@ function Checkout() {
                 <Button
                   label="Remove"
                   onClick={() => removeItem(obj.product.id)}
+                  text="Remove item"
                 />
               </div>
             </div>
           </li>
         ))}
       </ul>
+      {products.length > 0 && (
+        <Button
+          label="Empty cart"
+          onClick={emptyCart}
+          text="Empty cart"
+        />
+      )}
     </div>
   );
 }
