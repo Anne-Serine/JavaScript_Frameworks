@@ -7,44 +7,55 @@ function Checkout() {
   const removeItem = useCounterStore((state) => state.removeItem);
   const emptyCart = useCounterStore((state) => state.emptyCart);
 
-  console.log(products)
-
+  console.log(products);
 
   return (
-    <div>
+    <div className="container flex flex-col mb-2">
       <h1>Checkout</h1>
 
-      <ul>
-        {products.map((obj) => (
-          <li key={obj.product.id}>
-            <div className="bg-ecom-white max-w-[18rem] flex ">
-              <div>
-                <img
-                  src="/assets/facebook-color.svg"
-                  className="size-20"
-                  alt=""
-                />
-              </div>
-              <div>
-                <h2 className="text-lg">{obj.product.title}</h2>
-                <p>{obj.product.description}</p>
-                <Counter id={obj.product.id} qty={obj.qty} />
-                <Button
-                  label="Remove"
-                  onClick={() => removeItem(obj.product.id)}
-                  text="Remove item"
-                />
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-      {products.length > 0 && (
-        <Button
-          label="Empty cart"
-          onClick={emptyCart}
-          text="Empty cart"
-        />
+      {products.length === 0 ? (
+        <p>No items in cart</p>
+      ) : (
+        <>
+          <ul>
+            {products.map((obj) => (
+              <li key={obj.product.id}>
+                <div className="bg-ecom-white max-w-[18rem] flex ">
+                  <div>
+                    <img
+                      src="/assets/facebook-color.svg"
+                      className="size-20"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <h2 className="text-lg">{obj.product.title}</h2>
+                    <p>{obj.product.description}</p>
+                    <Counter id={obj.product.id} qty={obj.qty} />
+                    <Button
+                      label="Remove"
+                      onClick={() => removeItem(obj.product.id)}
+                      text="Remove item"
+                    />
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          {products.length > 0 && (
+            <Button
+              label="Empty cart"
+              onClick={emptyCart}
+              text="Empty cart"
+              type="secondary"
+            />
+          )}
+          <Button 
+            text="Checkout" 
+            type="primary" 
+            url="/checkout/success"
+          />
+        </>
       )}
     </div>
   );

@@ -1,47 +1,67 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import CategoryThumb from "../components/CategoryThumb";
 import { ShoppingCart } from "../components/icons";
 import ProductCard from "../components/ProductCard";
+import { useProducts } from "../hooks/Store";
 
 function Home() {
-
-  const url = "https://v2.api.noroff.dev/online-shop";
-
-  const [products, setProducts] = useState([]);
+  const products = useProducts((state) => state.allProducts);
+  const getAllProducts = useProducts((state) => state.getAllProducts);
 
   useEffect(() => {
-    async function getProducts(){
-      try {
-        const response = await fetch(url);
-        const result = await response.json();
-        setProducts(result.data);
-      } catch (error) {
-        return error
-      }
-    }
-    getProducts()
-  }, []);
+    getAllProducts();
+  }, [getAllProducts]);
 
   console.log(products);
 
   return (
     <>
       <div className="bg-ecom-light p-8">
-        <h1 className="hero-heading mx-auto w-max">Welcome,<span>take a look around</span></h1>
+        <h1 className="hero-heading mx-auto w-max">
+          Welcome,<span>take a look around</span>
+        </h1>
       </div>
       <div className="container">
         <div className="flex justify-between overflow-x-auto whitespace-nowrap">
-          <CategoryThumb name="category1" icon={<ShoppingCart classes="text-ecom-light" />}/>
-          <CategoryThumb name="category2" icon={<ShoppingCart classes="text-ecom-light" />}/>
-          <CategoryThumb name="category3" icon={<ShoppingCart classes="text-ecom-light" />}/>
-          <CategoryThumb name="category4" icon={<ShoppingCart classes="text-ecom-light" />}/>
-          <CategoryThumb name="category5" icon={<ShoppingCart classes="text-ecom-light" />}/>
+          <CategoryThumb
+            name="category1"
+            icon={<ShoppingCart classes="text-ecom-light" />}
+          />
+          <CategoryThumb
+            name="category2"
+            icon={<ShoppingCart classes="text-ecom-light" />}
+          />
+          <CategoryThumb
+            name="category3"
+            icon={<ShoppingCart classes="text-ecom-light" />}
+          />
+          <CategoryThumb
+            name="category4"
+            icon={<ShoppingCart classes="text-ecom-light" />}
+          />
+          <CategoryThumb
+            name="category5"
+            icon={<ShoppingCart classes="text-ecom-light" />}
+          />
         </div>
-        <div className="my-6 grid grid-cols-[repeat(auto-fit,minmax(18rem,_1fr))] gap-3">
-          {products.length > 0 && products.map((product) => (
-            <ProductCard name={product.title} price={product.price} image={product.image.url} discountPrice={product.discountedPrice} key={product.id} id={product.id} />
-          ))}
-        </div>
+        {products.length === 0 ? (
+          <p>Loading...</p>
+        ) : (
+          <div className="my-6 grid grid-cols-[repeat(auto-fit,minmax(18rem,_1fr))] gap-3">
+            {products.length > 0 &&
+              products.map((product) => (
+                <ProductCard
+                  name={product.title}
+                  price={product.price}
+                  image={product.image.url}
+                  discountPrice={product.discountedPrice}
+                  key={product.id}
+                  id={product.id}
+                />
+              ))}
+          </div>
+        )}
       </div>
     </>
   );

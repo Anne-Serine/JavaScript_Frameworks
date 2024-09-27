@@ -42,7 +42,19 @@ const useCounterStore = create((set) => ({
     set(() => ({
       count: 0,
       products: [],
-    })),
+    })
+  ),
+}));
+
+export const useProducts = create((set) => ({
+  allProducts: [],
+  getAllProducts: async () => {
+    const response = await fetch(`https://v2.api.noroff.dev/online-shop`).then((res) => res.json());
+    set(() => ({
+      allProducts: response.data
+    }))  
+  },
 }));
 
 export default useCounterStore;
+
