@@ -5,13 +5,10 @@ function Nav() {
     <nav className="hidden md:flex gap-10 items-center order-3">
             <ul className="flex justify-between gap-3">
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" className="hover:font-semibold hover:text-md  hover:border-y hover:py-1 hover:border-ecom-light">Home</Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-              <li>
-                <Link to="#">Profile</Link>
+                <Link to="/contact" className="hover:font-semibold hover:text-md  hover:border-y hover:py-1 hover:border-ecom-light">Contact</Link>
               </li>
             </ul>
           </nav>
