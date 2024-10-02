@@ -36,12 +36,12 @@ function SingleProduct({
           {price !== discountedPrice && (
             <div className="flex gap-2 text-center">
               <p className="line-through">{price} NOK</p>
-              <p className="text-red-400">Save: {price - discountedPrice} NOK</p>
+              <p className="text-red-400">Save: {(price - discountedPrice).toFixed(2)} NOK</p>
             </div>
           )}
         </div>
         <Counter id={id} qty={qty} setQty={(i) => setQty(i) } />
-        <Button id={id} onClick={(e) => addToCart(e,qty)} text="Add to cart" type="secondary" />
+        <Button id={id} onClick={(e) => addToCart(e,qty)} text="Add to cart" type="primary" />
       </div>
     </div>
   );

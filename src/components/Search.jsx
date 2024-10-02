@@ -40,18 +40,19 @@ function Search() {
         src="/assets/search-svgrepo-com.svg"
         className="h-4"
         alt="search-icon"
-      />
-      <input
-        type="search"
-        placeholder="Search..."
-        className="w-full p-1 border border-solid border-ecom-dark rounded-sm"
-        id="searchInput"
-        aria-label="search-input"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+        />
+        <div className="relative">
+            <input
+              type="search"
+              placeholder="Search..."
+              className="w-full p-1 border border-solid border-ecom-dark rounded-sm"
+              id="searchInput"
+              aria-label="search-input"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
       {searchTerm && (
-        <ul id="searchResults" className="absolute top-full left-6 bg-ecom-white border border-solid border-ecom-dark w-full p-1">
+        <ul id="searchResults" className="absolute top-full bg-ecom-white w-full p-1">
           {filteredProducts.length ? (
             filteredProducts.map(product => (
               <li 
@@ -73,6 +74,8 @@ function Search() {
       //     alert message
       //   </div>
       // </div> */}
+        </div>
+      
     </div>
   )
 }

@@ -9,7 +9,7 @@ function Counter({id, qty, setQty}) {
   return (
 
     <div className="flex">
-      <div className="flex justify-between items-center p-1 bg-ecom-light rounded-full">
+      <div className="flex justify-between items-center p-1 bg-ecom-light rounded-full max-h-[2rem]">
         <button
           onClick={() => { 
             decrement(id)
