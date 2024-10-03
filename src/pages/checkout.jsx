@@ -7,8 +7,6 @@ function Checkout() {
   const removeItem = useCounterStore((state) => state.removeItem);
   const emptyCart = useCounterStore((state) => state.emptyCart);
 
-  console.log(products);
-
   return (
     <div className="container flex flex-col mb-2">
       <h1 className="text-sm">Checkout</h1>
@@ -24,7 +22,7 @@ function Checkout() {
           <p className="text-sm max-w-[18rem] text-center mb-5">
             Looks like you haven´t added anything to your cart yet
           </p>
-          <Button type="secondary" text="Start shopping" />
+          <Button type="secondary" text="Start shopping" url="/" />
         </div>
       ) : (
         <div>
@@ -33,10 +31,10 @@ function Checkout() {
               {products.map((obj) => (
                 <li key={obj.product.id} className="py-1">
                   <div className="flex flex-wrap sm:flex-nowrap gap-4 bg-ecom-white p-4 rounded-md shadow-sm">
-                    <div className="flex-none w-full max-h-[10rem] max-w-[10rem] sm:max-h-[10rem] sm:max-w-[10rem] object-cover object-center overflow-hidden">
+                    <div className="flex-none w-full max-h-[10rem] max-w-[10rem] ">
                       <img
                         src={obj.product.image.url}
-                        className=""
+                        className="h-[10rem] w-[10rem] object-cover object-center overflow-hidden"
                         alt={obj.product.title}
                       />
                     </div>

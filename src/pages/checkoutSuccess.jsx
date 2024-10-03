@@ -12,10 +12,10 @@ function CheckoutSuccess() {
   }, [emptyCart])
 
   return (
-    <div className="mx-auto flex flex-col items-center">
+    <div className="container mx-auto flex flex-col text-center items-center gap-3 mt-10">
       <CircleCheckIcon color="green" size="100" strokeWidth={1}/>
-      <h1>Thank you for ordering!</h1>
-      <p>Your order will be shipped soon.</p>
+      <h1 className="text-3xl">Thank you for ordering!</h1>
+      <p className="pb-5">Your order will be shipped soon.</p>
       <Button type="primary" text="Shop more" url="/"  />
     </div>
   );

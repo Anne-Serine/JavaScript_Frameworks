@@ -13,7 +13,7 @@ function Home() {
     getAllProducts();
   }, [getAllProducts]);
 
-  console.log(products);
+  console.log(products)
 
   return (
     <>
@@ -23,25 +23,25 @@ function Home() {
         </h1>
       </div>
       <div className="container">
-        <div className="flex justify-between overflow-x-auto whitespace-nowrap">
+        <div className="flex justify-between overflow-x-auto whitespace-nowrap md:max-w-[42rem] md:mx-auto py-8">
           <CategoryThumb
-            name="category1"
+            name="ON SALE"
+            icon={<ShoppingCart classes="text-yellow-500" />}
+          />
+          <CategoryThumb
+            name="COSMETICS"
             icon={<ShoppingCart classes="text-ecom-light" />}
           />
           <CategoryThumb
-            name="category2"
+            name="SHOES"
             icon={<ShoppingCart classes="text-ecom-light" />}
           />
           <CategoryThumb
-            name="category3"
+            name="ELECTRONICS"
             icon={<ShoppingCart classes="text-ecom-light" />}
           />
           <CategoryThumb
-            name="category4"
-            icon={<ShoppingCart classes="text-ecom-light" />}
-          />
-          <CategoryThumb
-            name="category5"
+            name="JEWELRY"
             icon={<ShoppingCart classes="text-ecom-light" />}
           />
         </div>

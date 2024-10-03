@@ -51,7 +51,7 @@ function Contact(value) {
           We’d love to hear from you! <br /> Whether you have questions, feedback, or need assistance with your order, <br /> our team is here to help. <br className="mb-4"/>
         </p>
       </div>
-      <div className="container flex flex-wrap gap-10 justify-between my-16">
+      <div className="container flex flex-wrap gap-10 justify-between my-6">
         <div className="max-w-[36rem] w-full">
           <p className="py-5">
             Feel free to reach out to us using the form below <br /> or through any of our contact methods. <br /> We aim to respond to all inquiries within 24-48 hours.

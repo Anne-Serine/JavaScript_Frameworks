@@ -44,13 +44,13 @@ function SearchInput() {
         {searchTerm && (
           <ul
             id="searchResults"
-            className="absolute top-full left-0 border border-solid border-ecom-dark md:w-[20rem] bg-ecom-white text-ecom-dark w-full p-2"
+            className="absolute top-full left-0 border border-solid border-ecom-dark md:w-[20rem] bg-ecom-white text-ecom-dark w-full p-1 z-10"
           >
             {filteredProducts.length ? (
               filteredProducts.map((product) => (
                 <li
                   key={product.id}
-                  className="hover:bg-ecom-light hover:font-medium"
+                  className="hover:bg-yellow-500 hover:bg-opacity-30 hover:font-medium p-1"
                 >
                   <Link
                     onClick={() => {
