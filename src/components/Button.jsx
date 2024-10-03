@@ -6,13 +6,15 @@ function Button({ text, type, url, onClick, id, icon }) {
   const primary = "bg-ecom-dark hover:bg-ecom-black text-ecom-light";
   const secondary = "bg-ecom-bg hover:bg-ecom-light";
   const clear = "border border-red-700 bg-red-100 hover:bg-red-700";
-  const checkout = "bg-ecom-dark hover:bg-green-700 text-ecom-light"
+  const checkout = "bg-ecom-dark hover:bg-green-700 text-ecom-light";
+  const submit = "bg-yellow-500 hover:bg-yellow-400 hover:font-semibold transition"
 
   const style =
     type === "primary" ? primary :
     type === "secondary" ? secondary :
     type === "clear" ? clear :
     type === "checkout" ? checkout :
+    type === "submit" ? submit :
     primary;
 
   return url ? (
