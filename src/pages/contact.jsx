@@ -45,7 +45,7 @@ function Contact(value) {
 
   return (
     <div className="">
-      <div className="bg-ecom-white w-full p-5">
+      <div className="bg-ecom-white w-full">
         <h1 className="container text-3xl">Contact us</h1>
         <p className="container ">
           We’d love to hear from you! <br /> Whether you have questions, feedback, or need assistance with your order, <br /> our team is here to help. <br className="mb-4"/>
