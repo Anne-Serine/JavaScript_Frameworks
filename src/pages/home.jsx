@@ -13,8 +13,6 @@ function Home() {
     getAllProducts();
   }, [getAllProducts]);
 
-  console.log(products)
-
   return (
     <>
       <div className="bg-ecom-light p-8">
