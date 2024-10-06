@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useCounterStore from "../hooks/Store";
 import Button from "./Button";
 import StarRating from "./StarRating";
-import Counter from "./counter";
+import Counter from "./Counter";
 import Popup from "./Popup";
 
 function SingleProduct({
