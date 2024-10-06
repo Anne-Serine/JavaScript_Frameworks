@@ -3,6 +3,7 @@ import useCounterStore from "../hooks/Store";
 import Button from "./Button";
 import StarRating from "./StarRating";
 import Counter from "./counter";
+import Popup from "./Popup";
 
 function SingleProduct({
   id,
@@ -16,6 +17,8 @@ function SingleProduct({
   const addToCart = useCounterStore((state) => state.addToCart);
   const products = useCounterStore((state) => state.products);
   const [qty, setQty] = useState(1);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   // Reset quantity when product id changes
   useEffect(() => {
@@ -59,10 +62,20 @@ function SingleProduct({
         <Counter id={id} qty={qty} setQty={(i) => setQty(i)} />
         <Button
           id={id}
-          onClick={() => addToCart(id, qty)}
+          onClick={() => {
+            addToCart(id, qty);
+            setPopupMessage(`${name} was added to cart`);
+            setShowPopup(true);
+
+            // Hide the popup after 3 seconds
+            setTimeout(() => {
+              setShowPopup(false);
+            }, 3000);
+          }}
           text="Add to cart"
           type="primary"
         />
+        <Popup show={showPopup} message={popupMessage} />
       </div>
     </div>
   );
