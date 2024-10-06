@@ -1,4 +1,4 @@
-import Counter from "../components/counter";
+import Counter from "../components/Counter";
 import useCounterStore from "../hooks/Store";
 import Button from "../components/Button";
 
