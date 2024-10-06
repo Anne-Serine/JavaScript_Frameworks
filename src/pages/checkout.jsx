@@ -14,7 +14,7 @@ function Checkout() {
       {products.length === 0 ? (
         <div className="flex flex-col justify-center items-center p-20">
           <img
-            src="/public/assets/shopping-bag.svg"
+            src="/assets/shopping-bag.svg"
             className="size-20"
             alt=""
           />
@@ -58,7 +58,7 @@ function Checkout() {
                             className=""
                           >
                             <img
-                              src="/public/assets/delete-remove.svg"
+                              src="/assets/delete-remove.svg"
                               alt=""
                               className="size-5"
                             />
