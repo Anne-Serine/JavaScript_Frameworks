@@ -6,7 +6,7 @@ function Footer() {
     <footer className="footer bg-ecom-dark text-ecom-light">
       <div className="container grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
         <div className="p-2">
-          <h2 className="text-center mb-2">NuYuu</h2>
+          <h2 className="text-center mb-2">NuuYuu</h2>
           <p className="">
             42 Trendsetter Avenue <br />
             Futureland 12345 <br />
