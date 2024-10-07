@@ -53,7 +53,7 @@ function SingleProduct({
           {price !== discountedPrice && (
             <div className="flex gap-2 text-center">
               <p className="line-through">{price} NOK</p>
-              <p className="text-red-400">
+              <p className="text-red-700">
                 Save: {(price - discountedPrice).toFixed(2)} NOK
               </p>
             </div>
