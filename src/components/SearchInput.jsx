@@ -25,7 +25,6 @@ function SearchInput() {
     }
   }, [searchTerm, products]);
   
-  console.log(products)
   return (
     <div
       className="flex gap-2 items-center order-4 w-full mt-2 md:mt-0"
