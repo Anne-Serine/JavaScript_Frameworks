@@ -13,13 +13,11 @@ function Home() {
     getAllProducts();
   }, [getAllProducts]);
 
-  console.log(products)
-
   return (
     <>
-      <div className="bg-ecom-light p-8">
+      <div className="bg-ecom-light p-12 flex flex-wrap">
         <h1 className="hero-heading mx-auto w-max">
-          Welcome,<span>take a look around</span>
+          Welcome,<span>Discover Our Wide Range of Products</span>
         </h1>
       </div>
       <div className="container">

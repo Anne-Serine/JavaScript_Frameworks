@@ -35,10 +35,10 @@ function SingleProduct({
 
   return (
     <div className="flex flex-wrap gap-10 pb-5">
-      <div className="w-full md:w-7/12">
+      <div className="w-full md:w-7/12 bg-ecom-light p-3 rounded-sm shadow-md">
         <img
           src={image}
-          alt=""
+          alt={name}
           className="size-full max-h-[40rem] object-cover"
         />
       </div>

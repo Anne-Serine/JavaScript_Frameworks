@@ -24,7 +24,8 @@ function SearchInput() {
       setFilteredProducts([]);
     }
   }, [searchTerm, products]);
-
+  
+  console.log(products)
   return (
     <div
       className="flex gap-2 items-center order-4 w-full mt-2 md:mt-0"
@@ -58,7 +59,9 @@ function SearchInput() {
                       setFilteredProducts([]);
                     }}
                     to={`/product/${product.id}`}
+                    className="flex gap-3"
                   >
+                    <img src={product.image.url} alt={product.name} className="size-6 object-cover overflow-hidden" />
                     {product.title}
                   </Link>
                 </li>
