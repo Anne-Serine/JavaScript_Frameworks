@@ -18,6 +18,7 @@ function Counter({id, qty, setQty}) {
           className="bg-ecom-dark text-ecom-light rounded-full size-5 text-sm leading-none"
           id="decreaseBtn"
           data-change-bid="decrease"
+          aria-label="Decrease product amount"
         >
           -
         </button>
@@ -36,6 +37,7 @@ function Counter({id, qty, setQty}) {
           className="bg-ecom-dark text-ecom-light rounded-full size-5 text-sm leading-none"
           id="increaseBtn"
           data-change-bid="increase"
+          aria-label="Increase product amount"
         >
           +
         </button>

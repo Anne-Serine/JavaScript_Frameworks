@@ -62,32 +62,32 @@ function Contact(value) {
           >
             <label htmlFor="fullName" className="text-ecom-light">Full name</label>
             <input type="text" id="fullName" {...register("fullName")} />
-            <p className="text-red-500" role="alert">
+            <p className="text-red-300" role="alert">
               {errors.fullName?.message}
             </p>
 
             <label htmlFor="subject" className="text-ecom-light">Subject</label>
             <input type="text" id="subject" {...register("subject")} />
-            <p className="text-red-500" role="alert">
+            <p className="text-red-300" role="alert">
               {errors.subject?.message}
             </p>
 
             <label htmlFor="email" className="text-ecom-light">Email</label>
             <input type="email" id="email" {...register("email")} />
-            <p className="text-red-500" role="alert">
+            <p className="text-red-300" role="alert">
               {errors.email?.message}
             </p>
 
             <label htmlFor="message" className="text-ecom-light">Message</label>
             <textarea className="mb-5" id="message" rows={5} {...register("message")} />
-            <p className="text-red-500" role="alert">
+            <p className="text-red-300" role="alert">
               {errors.message?.message}
             </p>
 
             <Button text="Send" type="submit" onClick={() => (value)}/>
           </form>
           {submitted && 
-            <p className="py-2 text-green-800">
+            <p role="status" className="py-2 text-green-800">
               Your data has been logged in the console
             </p>}
         </div>

@@ -1,6 +1,7 @@
 import Counter from "../components/Counter";
 import useCounterStore from "../hooks/Store";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 function Checkout() {
   const products = useCounterStore((state) => state.products);
@@ -8,15 +9,16 @@ function Checkout() {
   const emptyCart = useCounterStore((state) => state.emptyCart);
 
   return (
-    <div className="container flex flex-col mb-2">
-      <h1 className="text-sm">Checkout</h1>
+    <div className="container flex flex-col mb-2 gap-2">
+      <h1 className="text-3xl">Review Your Cart</h1>
+      <h2 className="text-lg">Please check the items below before proceeding</h2>
 
       {products.length === 0 ? (
         <div className="flex flex-col justify-center items-center p-20">
           <img
             src="/assets/shopping-bag.svg"
             className="size-20"
-            alt=""
+            alt={products.title}
           />
           <p className="text-xl font-medium mt-5">Your cart is empty</p>
           <p className="text-sm max-w-[18rem] text-center mb-5">
@@ -26,7 +28,7 @@ function Checkout() {
         </div>
       ) : (
         <div>
-          <div className="pt-10">
+          <div className="pt-8">
             <ul>
               {products.map((obj) => (
                 <li key={obj.product.id} className="py-1">
@@ -40,9 +42,13 @@ function Checkout() {
                     </div>
                     <div className="flex md:flex-1 flex-wrap justify-between">
                       <div className="max-w-[24rem]">
-                        <h2 className="text-xl font-semibold mb-3">
-                          {obj.product.title}
-                        </h2>
+                        <Link
+                          to={`/product/${obj.product.id}`}
+                        >
+                          <h2 className="text-xl font-semibold mb-3">
+                            {obj.product.title}
+                          </h2>
+                        </Link>
                         <p>{obj.product.description}</p>
                       </div>
                       <div className="flex flex-wrap mt-6 sm:mt-0 w-full justify-between items-end">
@@ -59,7 +65,7 @@ function Checkout() {
                           >
                             <img
                               src="/assets/delete-remove.svg"
-                              alt=""
+                              alt="remove item icon"
                               className="size-5"
                             />
                           </button>
@@ -79,7 +85,7 @@ function Checkout() {
                 type="clear"
                 icon={<img
                   src="/assets/trash-can.svg"
-                  alt=""
+                  alt="trash can icon"
                   className="size-5"
                 />}
               />
