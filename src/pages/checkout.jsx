@@ -9,25 +9,27 @@ function Checkout() {
   const emptyCart = useCounterStore((state) => state.emptyCart);
 
   return (
-    <div className="container flex flex-col mb-2 gap-2">
-      <h1 className="text-3xl">Review Your Cart</h1>
-      <h2 className="text-lg">Please check the items below before proceeding</h2>
-
+    <div className="container flex flex-col mb-2 gap-1">
       {products.length === 0 ? (
-        <div className="flex flex-col justify-center items-center p-20">
-          <img
-            src="/assets/shopping-bag.svg"
-            className="size-20"
-            alt={products.title}
-          />
-          <p className="text-xl font-medium mt-5">Your cart is empty</p>
-          <p className="text-sm max-w-[18rem] text-center mb-5">
-            Looks like you haven´t added anything to your cart yet
-          </p>
-          <Button type="secondary" text="Start shopping" url="/" />
+        <div>
+          <h1 className="text-2xl">Checkout</h1>
+          <div className="flex flex-col justify-center items-center p-20">
+            <img
+              src="/assets/shopping-bag.svg"
+              className="size-20"
+              alt={products.title}
+            />
+            <p className="text-xl font-medium mt-5">Your cart is empty</p>
+            <p className="text-sm max-w-[18rem] text-center mb-5">
+              Looks like you haven´t added anything to your cart yet
+            </p>
+            <Button type="secondary" text="Start shopping" url="/" />
+          </div>
         </div>
       ) : (
         <div>
+          <h1 className="text-2xl">Review Your Cart</h1>
+          <h2 className="text-sm">Please check the items below before proceeding</h2>
           <div className="pt-8">
             <ul>
               {products.map((obj) => (
@@ -78,7 +80,7 @@ function Checkout() {
             </ul>
           </div>
           {products.length > 0 && (
-            <div className="flex justify-end py-5 items-center">
+            <div className="flex justify-start py-5 items-center">
               <Button
                 onClick={emptyCart}
                 text="Empty cart"
