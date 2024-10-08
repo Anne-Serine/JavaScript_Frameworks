@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useProducts } from "../hooks/Store";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ function SearchInput() {
   const getAllProducts = useProducts((state) => state.getAllProducts);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const searchContainerRef = useRef(null);
 
   useEffect(() => {
     getAllProducts();
@@ -24,6 +25,23 @@ function SearchInput() {
       setFilteredProducts([]);
     }
   }, [searchTerm, products]);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(e.target)
+      ) {
+        setSearchTerm(""); //Clear search or hide dropdown when clicking outside
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, []);
   
   return (
     <div
@@ -31,7 +49,7 @@ function SearchInput() {
       id="searchContainer"
     >
       <Search color="white" size="25" strokeWidth={1} />
-      <div className="relative w-full">
+      <div ref={searchContainerRef} className="relative w-full">
         <input
           type="search"
           placeholder="Search item..."
