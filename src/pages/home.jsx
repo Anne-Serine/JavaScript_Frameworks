@@ -46,7 +46,7 @@ function Home() {
         {products.length === 0 ? (
           <p>Loading...</p>
         ) : (
-          <div className="my-6 grid grid-cols-[repeat(auto-fit,minmax(18rem,_1fr))] gap-3">
+          <div className="my-6 grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(18rem,_1fr))] justify-items-center gap-3">
             {products.length > 0 &&
               products.map((product) => (
                 <ProductCard

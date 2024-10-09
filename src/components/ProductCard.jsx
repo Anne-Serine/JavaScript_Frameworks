@@ -4,7 +4,7 @@ function ProductCard({ name, price, image, discountPrice, id }) {
   return (
     <Link
       to={`/product/${id}`}
-      className="bg-ecom-white rounded-md font-semibold text-lg max-w-[24rem] shadow-md"
+      className="bg-ecom-white rounded-md font-semibold text-lg max-w-[24rem] shadow-md w-full"
     >
       <div className="relative border-b-2 border-ecom-dark">
         <img src={image} alt={name} className="rounded-t-md w-full h-80 object-cover" />
