@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Nav({ isOpen }) {
   return (
@@ -9,20 +9,28 @@ function Nav({ isOpen }) {
     >
       <ul className="flex flex-col md:flex-row gap-4 md:gap-10">
         <li>
-          <Link
+          <NavLink
             to="/"
-            className="hover:font-semibold hover:text-md hover:border-y hover:py-1 hover:border-yellow-500"
+            className={({isActive}) => 
+              isActive
+                ? "font-semibold text-md border-y py-1 border-yellow-500"
+                : "hover:font-semibold hover:text-md hover:border-y hover:py-1 hover:border-yellow-500"
+            }
           >
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link
+          <NavLink
             to="/contact"
-            className="hover:font-semibold hover:text-md hover:border-y hover:py-1 hover:border-yellow-500"
+            className={({isActive}) => 
+              isActive
+                ? "font-semibold text-md border-y py-1 border-yellow-500"
+                : "hover:font-semibold hover:text-md hover:border-y hover:py-1 hover:border-yellow-500"
+            }
           >
             Contact
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>
