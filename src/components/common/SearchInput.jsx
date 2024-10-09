@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useState } from "react";
-import { useProducts } from "../hooks/Store";
+import { useProducts } from "../../hooks/Store";
 import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 

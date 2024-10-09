@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Cart from "./Cart";
-import Nav from "./Nav";
-import SearchInput from "./SearchInput";
+import Cart from "../features/cart/Cart";
+import Nav from "../layout/Nav";
+import SearchInput from "../common/SearchInput";
 import { useState } from "react";
 import { Menu } from "lucide-react";
 

@@ -1,4 +1,4 @@
-import Button from "../components/Button";
+import Button from "../components/common/Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";

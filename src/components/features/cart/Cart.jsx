@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useCounterStore from "../hooks/Store";
+import useCounterStore from "../../../hooks/Store";
 import { ShoppingBag } from "lucide-react";
 
 function Cart() {

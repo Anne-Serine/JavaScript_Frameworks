@@ -1,6 +1,6 @@
-import Counter from "../components/Counter";
+import Counter from "../components/features/cart/Counter";
 import useCounterStore from "../hooks/Store";
-import Button from "../components/Button";
+import Button from "../components/common/Button";
 import { Link } from "react-router-dom";
 
 function Checkout() {

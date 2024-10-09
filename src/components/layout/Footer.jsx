@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Email } from "./icons";
+import { Email } from "../common/icons";
 
 function Footer() {
   return (

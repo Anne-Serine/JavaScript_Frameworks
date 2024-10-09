@@ -1,5 +1,5 @@
 import { CircleCheckIcon } from "lucide-react";
-import Button from "../components/Button";
+import Button from "../components/common/Button";
 import useCounterStore from "../hooks/Store";
 import { useEffect } from "react";
 

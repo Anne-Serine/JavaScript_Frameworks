@@ -1,4 +1,4 @@
-import useCounterStore from "../hooks/Store";
+import useCounterStore from "../../../hooks/Store";
 
 
 function Counter({id, qty, setQty}) {

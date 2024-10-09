@@ -1,8 +1,8 @@
 // import { useState, useEffect } from "react";
 import { useEffect } from "react";
-import CategoryThumb from "../components/CategoryThumb";
-import { ShoppingCart } from "../components/icons";
-import ProductCard from "../components/ProductCard";
+import CategoryThumb from "../components/features/product/CategoryThumb";
+import { ShoppingCart } from "../components/common/icons";
+import ProductCard from "../components/features/product/ProductCard";
 import { useProducts } from "../hooks/Store";
 
 function Home() {
