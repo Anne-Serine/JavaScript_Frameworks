@@ -18,7 +18,7 @@ const useCounterStore = create((set) => ({
       ),
     })),
   addToCart: async (id, qty) => {
-    const response = await fetch(`https://v2.api.noroff.dev/online-shop/${id}`).then((res) => res.json());
+    const response = await fetch(`${import.meta.env.VITE_BASE_URL}${id}`).then((res) => res.json());
     set((state) =>
       !state.products.some((obj) => obj.product.id === id)
         ? {
@@ -49,7 +49,7 @@ const useCounterStore = create((set) => ({
 export const useProducts = create((set) => ({
   allProducts: [],
   getAllProducts: async () => {
-    const response = await fetch(`https://v2.api.noroff.dev/online-shop`).then((res) => res.json());
+    const response = await fetch(`${import.meta.env.VITE_BASE_URL}`).then((res) => res.json());
     set(() => ({
       allProducts: response.data
     }))  

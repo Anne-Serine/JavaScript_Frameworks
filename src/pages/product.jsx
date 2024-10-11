@@ -6,7 +6,7 @@ import SingleProduct from "../components/features/product/SingleProduct";
 function Product() {
   const [product, setProduct] = useState([]);
   let { id } = useParams();
-  const url = `https://v2.api.noroff.dev/online-shop/${id}`;
+  const url = `${import.meta.env.VITE_BASE_URL}${id}`;
 
   useEffect(() => {
     async function getProduct() {
