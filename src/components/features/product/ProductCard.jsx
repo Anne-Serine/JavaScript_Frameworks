@@ -7,7 +7,11 @@ function ProductCard({ name, price, image, discountPrice, id }) {
       className="bg-ecom-white rounded-md font-semibold text-lg max-w-[24rem] shadow-md w-full"
     >
       <div className="relative border-b-2 border-ecom-dark">
-        <img src={image} alt={name} className="rounded-t-md w-full h-80 object-cover" />
+        <img
+          src={image}
+          alt={name}
+          className="rounded-t-md w-full h-80 object-cover"
+        />
         {price !== discountPrice && (
           <div className="absolute rounded-full bg-ecom-black text-yellow-500 text-sm font-normal size-12 flex items-center justify-center top-3 right-2">
             SALE

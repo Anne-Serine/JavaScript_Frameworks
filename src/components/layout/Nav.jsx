@@ -11,7 +11,7 @@ function Nav({ isOpen }) {
         <li>
           <NavLink
             to="/"
-            className={({isActive}) => 
+            className={({ isActive }) =>
               isActive
                 ? "font-semibold text-md border-y py-1 border-yellow-500"
                 : "hover:font-semibold hover:text-md hover:border-y hover:py-1 hover:border-yellow-500"
@@ -23,7 +23,7 @@ function Nav({ isOpen }) {
         <li>
           <NavLink
             to="/contact"
-            className={({isActive}) => 
+            className={({ isActive }) =>
               isActive
                 ? "font-semibold text-md border-y py-1 border-yellow-500"
                 : "hover:font-semibold hover:text-md hover:border-y hover:py-1 hover:border-yellow-500"
