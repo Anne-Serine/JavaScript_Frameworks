@@ -1,4 +1,5 @@
-# React eCommerce Store
+# nuuYuu - React eCommerce Store
+![Skjermbilde 2024-10-06 kl  15 57 07](https://github.com/user-attachments/assets/7ed85133-aca8-4665-a195-d07b7feeb55c)
 
 Live site: [nuuYuu - React eCommerce Store]()
 
