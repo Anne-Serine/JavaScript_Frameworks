@@ -1,9 +1,10 @@
 // import { useState, useEffect } from "react";
 import { useEffect } from "react";
-import CategoryThumb from "../components/CategoryThumb";
-import { ShoppingCart } from "../components/icons";
-import ProductCard from "../components/ProductCard";
+import CategoryThumb from "../components/features/product/CategoryThumb";
+import { ShoppingCart } from "../components/common/icons";
+import ProductCard from "../components/features/product/ProductCard";
 import { useProducts } from "../hooks/Store";
+import { PacmanLoader } from "react-spinners";
 
 function Home() {
   const products = useProducts((state) => state.allProducts);
@@ -44,9 +45,11 @@ function Home() {
           />
         </div>
         {products.length === 0 ? (
-          <p>Loading...</p>
+          <div className="flex justify-center">
+            <PacmanLoader color="#e6b523" />
+          </div>
         ) : (
-          <div className="my-6 grid grid-cols-[repeat(auto-fit,minmax(18rem,_1fr))] gap-3">
+          <div className="my-6 grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(18rem,_1fr))] justify-items-center gap-3">
             {products.length > 0 &&
               products.map((product) => (
                 <ProductCard

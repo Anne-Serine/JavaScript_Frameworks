@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import useCounterStore from "../hooks/Store";
-import Button from "./Button";
-import StarRating from "./StarRating";
-import Counter from "./Counter";
-import Popup from "./Popup";
+import useCounterStore from "../../../hooks/Store";
+import Button from "../../common/Button";
+import StarRating from "../../common/StarRating";
+import Counter from "../../features/cart/Counter";
+import Popup from "../cart/Popup";
 
 function SingleProduct({
   id,

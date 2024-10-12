@@ -1,6 +1,6 @@
-import Counter from "../components/Counter";
+import Counter from "../components/features/cart/Counter";
 import useCounterStore from "../hooks/Store";
-import Button from "../components/Button";
+import Button from "../components/common/Button";
 import { Link } from "react-router-dom";
 
 function Checkout() {
@@ -29,7 +29,9 @@ function Checkout() {
       ) : (
         <div>
           <h1 className="text-2xl">Review Your Cart</h1>
-          <h2 className="text-sm">Please check the items below before proceeding</h2>
+          <h2 className="text-sm">
+            Please check the items below before proceeding
+          </h2>
           <div className="pt-8">
             <ul>
               {products.map((obj) => (
@@ -44,9 +46,7 @@ function Checkout() {
                     </div>
                     <div className="flex md:flex-1 flex-wrap justify-between">
                       <div className="max-w-[24rem]">
-                        <Link
-                          to={`/product/${obj.product.id}`}
-                        >
+                        <Link to={`/product/${obj.product.id}`}>
                           <h2 className="text-xl font-semibold mb-3">
                             {obj.product.title}
                           </h2>
@@ -85,18 +85,29 @@ function Checkout() {
                 onClick={emptyCart}
                 text="Empty cart"
                 type="clear"
-                icon={<img
-                  src="/assets/trash-can.svg"
-                  alt="trash can icon"
-                  className="size-5"
-                />}
+                icon={
+                  <img
+                    src="/assets/trash-can.svg"
+                    alt="trash can icon"
+                    className="size-5"
+                  />
+                }
               />
             </div>
           )}
           <div className="flex flex-col justify-end border-t py-5 border-ecom-dark">
             <div className="flex justify-end gap-10 font-bold">
               <p>Total: </p>
-              <p>{products.reduce((sum, item) => sum + item.product.discountedPrice * item.qty, 0).toFixed(2)} NOK</p>
+              <p>
+                {products
+                  .reduce(
+                    (sum, item) =>
+                      sum + item.product.discountedPrice * item.qty,
+                    0
+                  )
+                  .toFixed(2)}{" "}
+                NOK
+              </p>
             </div>
             <div className="flex justify-end mt-10">
               <Button text="Checkout" type="checkout" url="/checkout/success" />
